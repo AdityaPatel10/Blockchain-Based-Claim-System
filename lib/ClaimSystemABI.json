@@ -1,0 +1,175 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_policyNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_claimType",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_description",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "submitClaim",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_claimId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum ClaimSystem.ClaimStatus",
+                "name": "_newStatus",
+                "type": "uint8"
+            }
+        ],
+        "name": "updateClaimStatus",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_claimId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getClaimStatus",
+        "outputs": [
+            {
+                "internalType": "enum ClaimSystem.ClaimStatus",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_claimId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getClaim",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "policyNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "claimType",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "description",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "enum ClaimSystem.ClaimStatus",
+                        "name": "status",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "claimant",
+                        "type": "address"
+                    }
+                ],
+                "internalType": "struct ClaimSystem.Claim",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claimCounter",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "claimId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "claimant",
+                "type": "address"
+            }
+        ],
+        "name": "ClaimSubmitted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "claimId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum ClaimSystem.ClaimStatus",
+                "name": "newStatus",
+                "type": "uint8"
+            }
+        ],
+        "name": "ClaimStatusUpdated",
+        "type": "event"
+    }
+]
